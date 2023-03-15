@@ -14,7 +14,7 @@ CInserir, editar, excluir e visualizar planos de contas, informando uma descriç
 Inserir, editar, excluir e visualizar transações, informando uma data, valor, histórico e relacionar a um Plano de Contas:
 <img src='docs/transacoes.PNG' alt='Tela de Transações'/>
 
-##Arquitetura
+## Arquitetura
 Foi utilizado a arquitetura MVC (Model-View-Controller) é um padrão de projeto de software que separa a aplicação em três componentes principais: o Model (Modelo), que representa os dados e regras de negócio; a View (Visão), que apresenta a interface gráfica ao usuário; e o Controller (Controlador), que gerencia as solicitações do usuário e as respostas do servidor.
 <img src='docs/mvc.png' alt='Tela de Transações'/>
 
@@ -33,7 +33,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 </p>
 
 ## Instalação
-####Requisitos
+#### Requisitos
 - <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">.NET CORE SDK 6.0</a>
 - Criar banco de dados a partir do seguinte [script](/docs/SQLQuery1.sql)
 
