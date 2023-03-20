@@ -10,7 +10,7 @@ primary key(id)
 
 create table transacao(
 id int identity (1,1) not null,
-date datetime not null,
+data datetime not null,
 valor decimal(9,2),
 historico text,
 planocontaid int not null,
