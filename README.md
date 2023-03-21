@@ -14,12 +14,8 @@ Inserir, editar, excluir e visualizar planos de contas, informando uma descriç�
 
 ### Transações
 
-Inserir, editar, excluir e visualizar transações, informando uma data, valor, histórico e relacionar a um Plano de Contas:
+Permite consultar Transações com filtro de período de data. Permite excluir, inserir, editar informando uma data, valor, histórico e relacionar a um Plano de Contas:
 <img src='docs/transacoes.PNG' alt='Tela de Transações'/>
-
-### Relatório de Transações
-Permite visualizar registros de transações filtrando por um intervalo de datas.
-<img src='docs/relatorio.PNG' alt='Tela de Transações'/>
 
 ## Arquitetura
 Foi utilizado a arquitetura MVC (Model-View-Controller) é um padrão de projeto de software que separa a aplicação em três componentes principais: o Model (Modelo), que representa os dados e regras de negócio; a View (Visão), que apresenta a interface gráfica ao usuário; e o Controller (Controlador), que gerencia as solicitações do usuário e as respostas do servidor.
