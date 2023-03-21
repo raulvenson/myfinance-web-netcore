@@ -28,6 +28,22 @@ namespace myfinance_web_netcore.Controllers
             ViewBag.Transacoes = _transacaoService.ListarRegistros();
             return View();
         }
+        [HttpPost]
+        [Route("Index")]
+        public IActionResult Index(TransacaoFiltroModel? transacaoFiltroModel)
+        {
+DateTime dataNull = new DateTime(1, 1, 1);
+            if ((transacaoFiltroModel.DataInicio != null && transacaoFiltroModel.DataInicio != dataNull) 
+            || (transacaoFiltroModel.DataFim != null && transacaoFiltroModel.DataFim != dataNull)) 
+            {
+                ViewBag.Transacoes = _transacaoService.ListarPorData(transacaoFiltroModel.DataInicio, transacaoFiltroModel.DataFim);
+            }
+            else
+            {
+                ViewBag.Transacoes = _transacaoService.ListarRegistros();
+            }
+            return View();
+        }
 
         [HttpGet]
         [Route("Cadastro")]

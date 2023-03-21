@@ -9,7 +9,7 @@ namespace myfinance_web_netcore.Domain.Services.Interfaces
     public interface ITransacaoService
     {
        List<TransacaoModel> ListarRegistros();
-
+       List<TransacaoModel> ListarPorData(DateTime dataInicio, DateTime dadaFim);
        void Salvar(TransacaoModel model);
 
        TransacaoModel RetornarRegistro(int id);

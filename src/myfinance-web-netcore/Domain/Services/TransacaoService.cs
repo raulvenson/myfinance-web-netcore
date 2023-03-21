@@ -23,7 +23,7 @@ namespace myfinance_web_netcore.Domain.Services.Interfaces
         public List<TransacaoModel> ListarRegistros()
         {
             var result = new List<TransacaoModel>();
-            var dbSet = _dbContext.Transacao.Include( x => x.PlanoConta);
+            var dbSet = _dbContext.Transacao.Include(x => x.PlanoConta);
 
             foreach (var item in dbSet)
             {
@@ -33,7 +33,8 @@ namespace myfinance_web_netcore.Domain.Services.Interfaces
                     Historico = item.Historico,
                     Data = item.Data,
                     Valor = item.Valor,
-                    ItemPlanoConta = new PlanoContaModel(){
+                    ItemPlanoConta = new PlanoContaModel()
+                    {
                         Id = item.PlanoConta.Id,
                         Descricao = item.PlanoConta.Descricao,
                         Tipo = item.PlanoConta.Tipo
@@ -46,6 +47,37 @@ namespace myfinance_web_netcore.Domain.Services.Interfaces
 
 
             return result;
+        }
+
+        public List<TransacaoModel> ListarPorData(DateTime dataInicio, DateTime dadaFim)
+        {
+
+            var dbSet = _dbContext.Transacao
+                .Include(x => x.PlanoConta)
+                .Where(x => x.Data >= dataInicio.Date && x.Data <= dadaFim.Date);
+
+            List<TransacaoModel> lTransacao = new List<TransacaoModel>();
+
+            foreach (var item in dbSet)
+            {
+                lTransacao.Add(new TransacaoModel
+                {
+                    Id = item.Id,
+                    Data = item.Data,
+                    Historico = item.Historico,
+                    Valor = item.Valor,
+                    ItemPlanoConta =
+                        new PlanoContaModel
+                        {
+                            Id = item.PlanoConta.Id,
+                            Descricao = item.PlanoConta.Descricao,
+                            Tipo = item.PlanoConta.Tipo
+                        },
+                    PlanoContaId = (int)item.PlanoConta.Id
+                });
+            }
+            return lTransacao;
+
         }
 
         public void Salvar(TransacaoModel model)
@@ -86,7 +118,7 @@ namespace myfinance_web_netcore.Domain.Services.Interfaces
                 Data = item.Data,
                 Valor = item.Valor,
                 PlanoContaId = item.PlanoContaId,
-                
+
             };
 
             return itemPlanoConta;
